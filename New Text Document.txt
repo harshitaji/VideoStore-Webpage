@@ -1,0 +1,17 @@
+<?php
+  //order.php
+$con=mysqli_connect("localhost","root","","hotel_login")
+or die(mysqli_error($con));
+$order=$_POST['food'];
+$sql="INSERT INTO order(food) VALUES(?)";
+$stmtinsert=$con->prepare($sql);
+$result = $stmtinsert->execute([$order]);
+if($result){
+	echo 'YOUR ORDER IS RECIVED';
+                     
+		}
+else{
+	echo 'There were erros while saving the data.';
+		}
+  }
+?>
